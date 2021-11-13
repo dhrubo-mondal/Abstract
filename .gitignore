@@ -1,0 +1,10 @@
+#Folders to be ignored
+.idea/
+.vscode/
+.settings/
+target/
+
+#Files to be ignored
+.project
+.classpath
+
