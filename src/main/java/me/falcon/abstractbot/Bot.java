@@ -14,7 +14,7 @@ public class Bot {
 
     public static void main(String[] args) throws Exception {
         JDABuilder.createDefault(token)
-                .setActivity(Activity.watching("me getting coded, do "+prefix+"ping"))
+                .setActivity(Activity.watching("me getting coded by my developers, do "+prefix+"ping"))
                 .setStatus(OnlineStatus.ONLINE)
                 .addEventListeners(new BotOnlineEvent())
                 .addEventListeners(new JoinAndLeaveEvent())
