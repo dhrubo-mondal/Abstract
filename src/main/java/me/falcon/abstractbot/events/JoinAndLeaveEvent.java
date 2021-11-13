@@ -17,6 +17,8 @@ import java.util.List;
 import java.util.Objects;
 
 public class JoinAndLeaveEvent extends ListenerAdapter {
+
+    @SuppressWarnings("TextBlockMigration")
     @Override
     public void onGuildJoin(@NotNull GuildJoinEvent event) {
         System.out.println("Joined in "+event.getGuild().getName()+" with id " + event.getGuild().getId());
@@ -26,10 +28,10 @@ public class JoinAndLeaveEvent extends ListenerAdapter {
         EmbedBuilder message = new EmbedBuilder();
         message.setColor(new Color(3, 13, 217));
         message.addField("Thanks for inviting us ","Press `,help` for help commands",false);
-        message.addField("Common Configurations ", """
-                `,prefix <new prefix>` to set a new prefix
-                `,redirect <channel>` to redirect the bot command to a particular channel
-                `,config` to get the complete configurations for the server""" , false);
+        message.addField("Common Configurations ",
+                "`,prefix <new prefix>` to set a new prefix \n"+
+                "`,redirect <channel>` to redirect the bot command to a particular channel \n"+
+                "`,config` to get the complete configurations for the server \n" , false);
         message.addField("Support Server", "Click here[link] to join our support server",false);
         List<TextChannel> txt = event.getGuild().getTextChannels();
         Objects.requireNonNull(event.getGuild().getTextChannelById(txt.get(0).getId())).sendMessage(message.build()).queue();
