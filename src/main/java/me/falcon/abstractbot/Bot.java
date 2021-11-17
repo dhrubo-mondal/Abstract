@@ -9,8 +9,8 @@ import net.dv8tion.jda.api.entities.Activity;
 
 public class Bot {
     public static String prefix = ",";
-    public static String owner_id = System.getenv("OWNER_ID");
-    public static String token = System.getenv("TOKEN");
+    public static final String owner_id = System.getenv("OWNER_ID");
+    private static final String token = System.getenv("TOKEN");
 
     public static void main(String[] args) throws Exception {
         JDABuilder.createDefault(token)

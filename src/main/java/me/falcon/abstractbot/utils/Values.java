@@ -22,8 +22,8 @@ public class Values {
             System.out.println(e.getMessage());
             EmbedBuilder error = new EmbedBuilder();
             error.setColor(Color.RED);
-            error.setTitle("Unable to fetch value");
-            error.setDescription("Please re-write the command");
+            error.setTitle("Sudden Unexpected error occurred");
+            error.setDescription("The error should be fixed by the next time you issue a command");
             event.getChannel().sendMessage(error.build()).queue();
             error.clear();
             String[] keys = new String[]{"redirectChannel","prefix","hasRedirect"};

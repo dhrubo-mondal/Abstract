@@ -5,6 +5,8 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.concurrent.TimeUnit;
+
 public class PingCommand extends ListenerAdapter {
     @Override
     public void onGuildMessageReceived(@NotNull GuildMessageReceivedEvent event) {
@@ -23,6 +25,6 @@ public class PingCommand extends ListenerAdapter {
         }
     }
     private static void execute(GuildMessageReceivedEvent event){
-            event.getChannel().sendMessage("Pong !!").queue(msg -> msg.editMessage("Pong "+event.getJDA().getGatewayPing()+"ms !!").queue());
+            event.getChannel().sendMessage("Pong !!").queue(msg -> msg.editMessage("Pong "+event.getJDA().getGatewayPing()+"ms !!").queueAfter(100, TimeUnit.MILLISECONDS));
     }
 }
