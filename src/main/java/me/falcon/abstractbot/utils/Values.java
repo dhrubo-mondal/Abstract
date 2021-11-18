@@ -8,6 +8,7 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import java.awt.*;
 import java.io.*;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 public class Values {
 
@@ -22,9 +23,15 @@ public class Values {
             System.out.println(e.getMessage());
             EmbedBuilder error = new EmbedBuilder();
             error.setColor(Color.RED);
-            error.setTitle("Sudden Unexpected error occurred");
-            error.setDescription("The error should be fixed by the next time you issue a command");
-            event.getChannel().sendMessage(error.build()).queue();
+            error.setTitle("Sudden unexpected error occurred");
+            error.setDescription("The error should be fixed soon");
+            event.getChannel().sendMessage(error.build()).queue(message ->{
+                EmbedBuilder msg = new EmbedBuilder();
+                msg.setColor(Color.GREEN);
+                msg.setTitle("Error fixed");
+                msg.setDescription("We fixed the error");
+                message.editMessage("").queueAfter(100, TimeUnit.MILLISECONDS);
+            });
             error.clear();
             String[] keys = new String[]{"redirectChannel","prefix","hasRedirect"};
             String[] values = new String[]{"", Bot.prefix,"false"};
