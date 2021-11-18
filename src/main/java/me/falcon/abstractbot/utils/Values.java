@@ -30,15 +30,18 @@ public class Values {
                 msg.setColor(Color.GREEN);
                 msg.setTitle("Error fixed");
                 msg.setDescription("We fixed the error");
-                message.editMessage("").queueAfter(100, TimeUnit.MILLISECONDS);
+                message.editMessage(msg.build()).queueAfter(500, TimeUnit.MILLISECONDS);
+                msg.clear();
             });
             error.clear();
+
             String[] keys = new String[]{"redirectChannel","prefix","hasRedirect"};
             String[] values = new String[]{"", Bot.prefix,"false"};
             Values.setProperty(keys, values ,event);
         }
         return str;
     }
+
     public static void setProperty(String[] keys, String[] values , GuildMessageReceivedEvent event) {
         if (keys.length == values.length) {
             File file = new File(".//res//GUILD_FILES//" + event.getGuild().getId() + ".properties");
@@ -53,6 +56,7 @@ public class Values {
             }
         }
     }
+
     public static void setProperty(String[] keys, String[] values , GuildJoinEvent event){
         if (keys.length == values.length) {
             File file = new File(".//res//GUILD_FILES//" + event.getGuild().getId() + ".properties");
