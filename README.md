@@ -9,7 +9,7 @@ The source code here provided for educational purposes. We would not recommend r
 
 ## Contribution
 
-If you can contribute feel free to do that, first open a issue regarding the topic you want to contribute to the bot.
+If you can contribute feel free to do that, first open an issue regarding the topic you want to contribute to the bot.
 
 ## Roadmap
 I am looking forward to add these following major features, with small bug fixes and updates 
